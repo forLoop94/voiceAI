@@ -1,0 +1,108 @@
+/* Toast Base Styles */
+.toast-container {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  z-index: 9999;
+  pointer-events: none; /* Let clicks pass through empty space */
+}
+
+.toast-item {
+  min-width: 280px;
+  max-width: 360px;
+  background-color: var(--surface-white);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  padding: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--surface-white); /* White text for contrast on colored bg */
+  pointer-events: auto; /* Re-enable clicks on the toast itself */
+  
+  /* Entrance Animation */
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.toast-item.toast-closing {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+/* Toast Themes Based on Brand Colors */
+.toast-error {
+  background-color: var(--error-red);
+}
+
+.toast-success {
+  background-color: var(--success-green);
+}
+
+.toast-warning {
+  background-color: var(--warning-yellow);
+  color: var(--text-dark); /* Better contrast for yellow */
+}
+
+.toast-info {
+  background-color: var(--secondary-teal);
+}
+
+.toast-content {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.toast-close {
+  color: inherit;
+  opacity: 0.8;
+  font-size: 20px;
+  line-height: 1;
+  transition: opacity 0.2s;
+  padding: 0 var(--space-1);
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .toast-container {
+    top: var(--space-2);
+    left: var(--space-2);
+    right: var(--space-2);
+    align-items: center; /* Center on mobile to look better */
+  }
+  
+  .toast-item {
+    width: 100%;
+    max-width: none;
+  }
+}
