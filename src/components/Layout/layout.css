@@ -1,0 +1,113 @@
+/* Layout Specific Styles */
+.max-width-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Header */
+.site-header {
+  background-color: var(--surface-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: var(--space-3) 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.logo-box {
+  height: 40px;
+  background-color: var(--primary-deep-blue);
+  color: var(--surface-white);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-card);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.header-subtitle {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+/* Main & SupportCard */
+.main-content {
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.support-card {
+  background-color: var(--surface-white);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-subtle);
+  padding: var(--space-4);
+  width: 100%;
+  max-width: 800px; /* Optimal reading width */
+}
+
+.support-intro {
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.support-intro h2 {
+  margin-bottom: var(--space-2);
+}
+
+.support-intro p {
+  color: var(--text-light);
+}
+
+.support-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  padding: var(--space-4) 0;
+  background-color: var(--background-off-white);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
