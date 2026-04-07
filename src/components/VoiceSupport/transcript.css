@@ -95,3 +95,8 @@
 .message-user .message-time {
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* Partial (in-progress) transcript — slightly dimmed */
+.message-partial .message-bubble {
+  opacity: 0.65;
+}

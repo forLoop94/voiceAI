@@ -5,10 +5,15 @@ import { VoiceStatus } from './components/VoiceSupport/VoiceStatus'
 import { VoiceWidget } from './components/VoiceSupport/VoiceWidget'
 import { TranscriptDisplay } from './components/VoiceSupport/TranscriptDisplay'
 import { useVoiceStatus } from './hooks/useVoiceStatus'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
-  const { status, setStatus, micPermission } = useVoiceStatus();
+  const { status, setStatus, micPermission, checkMicPermission } = useVoiceStatus();
+
+  useEffect(() => {
+    checkMicPermission();
+  }, [checkMicPermission]);
+
   const [transcriptHistory, setTranscriptHistory] = useState([
     // Example initial message
     // { role: 'assistant', text: 'Hello! I am your AI assistant. How can I help you today?', timestamp: new Date() }
