@@ -31,7 +31,7 @@ function MicOffIcon({ size = 18 }) {
   );
 }
 
-export function VoiceWidget({ onStatusChange, onTranscriptUpdate }) {
+export function VoiceWidget({ onStatusChange, onTranscriptUpdate, customerInfo }) {
   const { addToast } = useToast();
 
   const [isReady,       setIsReady]       = useState(false);
@@ -168,14 +168,17 @@ export function VoiceWidget({ onStatusChange, onTranscriptUpdate }) {
     setIsConnecting(true);
     onStatusChangeRef.current?.('initializing');
     try {
-      await vapiRef.current.start(assistantId);
+      const assistantOverrides = customerInfo
+        ? { variableValues: { customerName: customerInfo.name, customerEmail: customerInfo.email, callReason: customerInfo.reason } }
+        : undefined;
+      await vapiRef.current.start(assistantId, assistantOverrides);
     } catch (err) {
       console.error('[Vapi] start failed:', err);
       setIsConnecting(false);
       onStatusChangeRef.current?.('idle');
       addToastRef.current('Failed to start session. Please try again.', 'error');
     }
-  }, [isConnecting, assistantId, pushTranscript]);
+  }, [isConnecting, assistantId, pushTranscript, customerInfo]);
 
   const endCall = useCallback(() => {
     vapiRef.current?.stop();

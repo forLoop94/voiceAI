@@ -6,9 +6,12 @@ export function Header() {
     <header className="site-header">
       <div className="header-content max-width-container">
         <div className="logo-placeholder">
-          {/* REPLACE ME: Place relaypay-logo.png in /public and update src below */}
-          <div className="logo-box" aria-hidden="true">[RELAYPAY_LOGO_HERE]</div>
-          {/* <img src="/relaypay-logo.png" alt="RelayPay Logo" height="40" /> */}
+          <img
+            src="https://cdn.discordapp.com/attachments/1475530537748926635/1491800134043046108/image.png?ex=69d9ab64&is=69d859e4&hm=6aa677f2f324c3fdc8705b064826740e315f7dd8d7100bf4ac7a85b8c8461a46"
+            alt="RelayPay Logo"
+            height="40"
+            style={{ display: 'block' }}
+          />
         </div>
         <div className="header-titles">
           <h1 className="header-title">Customer Support</h1>
